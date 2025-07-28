@@ -4,6 +4,9 @@ logs/
 build/
 bin/
 lib/
+install/
+log/
+/sros2_demo
 # msg_gen/
 # srv_gen/
 # msg/*Action.msg
