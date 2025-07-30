@@ -1,0 +1,78 @@
+<policy version="0.2.0">
+  <enclaves>
+    <enclave path="/">
+      <profiles>
+        
+        <profile node="gazebo" ns="/">
+          <topics publish="ALLOW" subscribe="ALLOW">
+            <topic>**</topic>
+          </topics>
+          <services request="ALLOW" reply="ALLOW">
+            <service>**</service>
+          </services>
+          <actions call="ALLOW" execute="ALLOW">
+            <action>**</action>
+          </actions>
+        </profile>
+        <profile node="spawn_entity" ns="/">
+          <services request="ALLOW">
+            <service>spawn_entity</service>
+          </services>
+        </profile>
+
+        <profile node="robot_controller" ns="/">
+          <topics publish="ALLOW">
+            <topic>cmd_vel</topic>
+          </topics>
+        </profile>
+
+        <profile node="robot_state_publisher" ns="/">
+          <topics publish="ALLOW">
+            <topic>robot_description</topic>
+            <topic>tf</topic>
+            <topic>tf_static</topic>
+          </topics>
+          <topics subscribe="ALLOW">
+            <topic>joint_states</topic>
+          </topics>
+        </profile>
+        <profile node="turtlebot3_diff_drive" ns="/">
+          <topics publish="ALLOW">
+            <topic>odom</topic>
+            <topic>tf</topic>
+          </topics>
+          <topics subscribe="ALLOW">
+            <topic>cmd_vel</topic>
+          </topics>
+        </profile>
+        <profile node="turtlebot3_imu" ns="/">
+          <topics publish="ALLOW"><topic>imu</topic></topics>
+        </profile>
+        <profile node="turtlebot3_joint_state" ns="/">
+          <topics publish="ALLOW"><topic>joint_states</topic></topics>
+        </profile>
+        <profile node="turtlebot3_laserscan" ns="/">
+          <topics publish="ALLOW"><topic>scan</topic></topics>
+        </profile>
+
+        <profile node="rviz" ns="/">
+          <topics subscribe="ALLOW">
+            <topic>odom</topic>
+            <topic>scan</topic>
+            <topic>tf</topic>
+            <topic>tf_static</topic>
+            <topic>robot_description</topic>
+            <topic>clock</topic>
+            <topic>parameter_events</topic>
+            <topic>rosout</topic>
+          </topics>
+          <topics publish="ALLOW">
+            <topic>goal_pose</topic>
+            <topic>initialpose</topic>
+          </topics>
+        </profile>
+       
+      </profiles>
+    </enclave>
+  </enclaves>
+</policy>

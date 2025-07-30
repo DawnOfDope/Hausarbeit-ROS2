@@ -1,10 +1,10 @@
 <dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.omg.org/spec/DDS-SECURITY/20170901/omg_shared_ca_permissions.xsd">
   <permissions>
-    <grant name="/rqt_gui_py_node_142017">
-      <subject_name>CN=/rqt_gui_py_node_142017</subject_name>
+    <grant name="/spawn_entity">
+      <subject_name>CN=/spawn_entity</subject_name>
       <validity>
-        <not_before>2025-07-28T08:43:39</not_before>
-        <not_after>2035-07-27T08:43:39</not_after>
+        <not_before>2025-07-28T20:56:40</not_before>
+        <not_after>2035-07-27T20:56:40</not_after>
       </validity>
       <allow_rule>
         <domains>

@@ -1,0 +1,97 @@
+<policy version="0.2.0">
+  <enclaves>
+
+    <enclave path="/gazebo">
+      <profiles>
+        <profile node="gazebo" ns="/">
+          <topics publish="ALLOW" subscribe="ALLOW"><topic>**</topic></topics>
+          <services request="ALLOW" reply="ALLOW"><service>**</service></services>
+          <actions call="ALLOW" execute="ALLOW"><action>**</action></actions>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/spawn_entity">
+      <profiles>
+        <profile node="spawn_entity" ns="/">
+          <services request="ALLOW"><service>spawn_entity</service></services>
+          <topics publish="ALLOW"><topic>rosout</topic></topics>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/robot_controller">
+      <profiles>
+        <profile node="robot_controller" ns="/">
+          <topics publish="ALLOW">
+            <topic>cmd_vel</topic>
+            <topic>parameter_events</topic>
+            <topic>rosout</topic>
+          </topics>
+          <services request="ALLOW" reply="ALLOW"><service>**/describe_parameters</service><service>**/get_parameter_types</service><service>**/get_parameters</service><service>**/list_parameters</service><service>**/set_parameters</service><service>**/set_parameters_atomically</service></services>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/robot_state_publisher">
+      <profiles>
+        <profile node="robot_state_publisher" ns="/">
+          <topics publish="ALLOW"><topic>robot_description</topic><topic>tf</topic><topic>tf_static</topic><topic>parameter_events</topic><topic>rosout</topic></topics>
+          <topics subscribe="ALLOW"><topic>joint_states</topic><topic>parameter_events</topic><topic>clock</topic></topics>
+          <services request="ALLOW" reply="ALLOW"><service>**/describe_parameters</service><service>**/get_parameter_types</service><service>**/get_parameters</service><service>**/list_parameters</service><service>**/set_parameters</service><service>**/set_parameters_atomically</service></services>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/turtlebot3_diff_drive">
+      <profiles>
+        <profile node="turtlebot3_diff_drive" ns="/">
+          <topics publish="ALLOW"><topic>odom</topic><topic>tf</topic><topic>parameter_events</topic><topic>rosout</topic></topics>
+          <topics subscribe="ALLOW"><topic>cmd_vel</topic><topic>parameter_events</topic><topic>clock</topic></topics>
+          <services request="ALLOW" reply="ALLOW"><service>**/describe_parameters</service><service>**/get_parameter_types</service><service>**/get_parameters</service><service>**/list_parameters</service><service>**/set_parameters</service><service>**/set_parameters_atomically</service></services>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/turtlebot3_imu">
+      <profiles>
+        <profile node="turtlebot3_imu" ns="/">
+          <topics publish="ALLOW"><topic>imu</topic><topic>parameter_events</topic><topic>rosout</topic></topics>
+          <topics subscribe="ALLOW"><topic>parameter_events</topic><topic>clock</topic></topics>
+          <services request="ALLOW" reply="ALLOW"><service>**/describe_parameters</service><service>**/get_parameter_types</service><service>**/get_parameters</service><service>**/list_parameters</service><service>**/set_parameters</service><service>**/set_parameters_atomically</service></services>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/turtlebot3_joint_state">
+      <profiles>
+        <profile node="turtlebot3_joint_state" ns="/">
+          <topics publish="ALLOW"><topic>joint_states</topic><topic>parameter_events</topic><topic>rosout</topic></topics>
+          <topics subscribe="ALLOW"><topic>parameter_events</topic><topic>clock</topic></topics>
+          <services request="ALLOW" reply="ALLOW"><service>**/describe_parameters</service><service>**/get_parameter_types</service><service>**/get_parameters</service><service>**/list_parameters</service><service>**/set_parameters</service><service>**/set_parameters_atomically</service></services>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/turtlebot3_laserscan">
+      <profiles>
+        <profile node="turtlebot3_laserscan" ns="/">
+          <topics publish="ALLOW"><topic>scan</topic><topic>parameter_events</topic><topic>rosout</topic></topics>
+          <topics subscribe="ALLOW"><topic>parameter_events</topic><topic>clock</topic></topics>
+          <services request="ALLOW" reply="ALLOW"><service>**/describe_parameters</service><service>**/get_parameter_types</service><service>**/get_parameters</service><service>**/list_parameters</service><service>**/set_parameters</service><service>**/set_parameters_atomically</service></services>
+        </profile>
+      </profiles>
+    </enclave>
+
+    <enclave path="/rviz">
+      <profiles>
+        <profile node="rviz" ns="/">
+          <topics subscribe="ALLOW"><topic>**</topic></topics>
+          <topics publish="ALLOW"><topic>**</topic><topic>initialpose</topic><topic>parameter_events</topic><topic>rosout</topic></topics>
+          <services request="ALLOW" reply="ALLOW"><service>**/describe_parameters</service><service>**/get_parameter_types</service><service>**/get_parameters</service><service>**/list_parameters</service><service>**/set_parameters</service><service>**/set_parameters_atomically</service></services>
+        </profile>
+      </profiles>
+    </enclave>
+
+  </enclaves>
+</policy>
