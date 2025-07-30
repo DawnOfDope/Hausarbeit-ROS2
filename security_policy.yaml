@@ -1,0 +1,49 @@
+# ~/ros2_security_ws/sros2_demo/policy.yaml
+nodes:
+  # Berechtigungen für den legitimen Controller
+  - name: robot_controller
+    permissions:
+      - topics:
+          - name: /cmd_vel
+            publish: ALLOW
+          # Standard-Topics, die jeder Node benötigt
+          - name: /parameter_events
+            publish: ALLOW
+          - name: /rosout
+            publish: ALLOW
+      - services:
+          - name: /robot_controller/describe_parameters
+            reply: ALLOW
+          - name: /robot_controller/get_parameter_types
+            reply: ALLOW
+          - name: /robot_controller/get_parameters
+            reply: ALLOW
+          - name: /robot_controller/list_parameters
+            reply: ALLOW
+          - name: /robot_controller/set_parameters
+            reply: ALLOW
+          - name: /robot_controller/set_parameters_atomically
+            reply: ALLOW
+
+  # Berechtigungen für den Gazebo-Node (Simulator)
+  - name: gazebo
+    permissions:
+      - topics:
+          - name: /cmd_vel
+            subscribe: ALLOW
+          - name: /odom
+            publish: ALLOW
+          - name: /tf
+            publish: ALLOW
+          - name: /clock
+            publish: ALLOW
+          # Standard-Topics
+          - name: /parameter_events
+            publish: ALLOW
+          - name: /rosout
+            publish: ALLOW
+      - services:
+          # Fügen Sie hier die notwendigen Parameter-Services für den Gazebo-Node hinzu
+          # (analog zum robot_controller)
+
+  # Fügen Sie hier weitere Node-Definitionen für robot_state_publisher etc. hinzu

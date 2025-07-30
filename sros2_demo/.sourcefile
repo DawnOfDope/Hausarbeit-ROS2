@@ -1,5 +1,0 @@
-export ROS_SECURITY_KEYSTORE=~/Hausarbeit-ROS2/sros2_demo/demo_keystore
-export ROS_SECURITY_ENABLE=true
-export ROS_SECURITY_STRATEGY=Enforce
-
-
