@@ -16,7 +16,7 @@ class LidarSpooferNode(Node):
         self.publisher_ = self.create_publisher(LaserScan, 'scan', 10)
         
         # Publishing at 10 Hz is a realistic frequency for a LiDAR sensor
-        timer_period = 0.1  # seconds (10 Hz)
+        timer_period = 0.01  # seconds (10 Hz)
         self.timer = self.create_timer(timer_period, self.timer_callback)
         
         # Log a warning to the console that this malicious node is active

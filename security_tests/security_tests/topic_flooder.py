@@ -9,7 +9,7 @@ class TopicFlooderNode(Node):
         self.publisher_ = self.create_publisher(Twist, 'cmd_vel', 10)
         # Attempt to publish at a very high rate (e.g., 1000 Hz)
         # Note: Python performance may limit the actual rate
-        timer_period = 0.001 
+        timer_period = 0.00001 
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.get_logger().warn('!!! Topic Flooder Node ACTIVE!!!')
 
